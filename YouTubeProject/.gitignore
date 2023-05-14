@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+### Other ###
+src/main/resources/talablar.txt
+!**/talablar.txt
+src/main/resources/application-local.properties
