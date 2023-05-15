@@ -13,7 +13,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
-@Service
 public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
