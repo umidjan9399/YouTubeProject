@@ -18,7 +18,6 @@ public class ProfileEntity {
     private Integer id;
     @Column(name = "name")
     private String name;
-    @Column(name = "surname")
     private String surname;
     @Column(name = "email")
     private String email;
@@ -26,6 +25,8 @@ public class ProfileEntity {
     private String phone;
     @Column(name = "password")
     private String password;
+    @Column(name = "photo")
+    private String photo;
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private GeneralStatus status;
