@@ -1,0 +1,29 @@
+### Login
+POST localhost:8080/api/v1/auth
+Content-Type:  application/json
+
+{
+  "email": "admin@mail.ru",
+  "password": "123"
+}
+
+### Login 2
+POST localhost:8080/api/v1/auth
+Content-Type:  application/json
+
+{
+  "email": "aaaa@gmail.com",
+  "password": "123456"
+}
+
+### Registration
+POST localhost:8080/api/v1/auth/register
+Content-Type:  application/json
+
+{
+  "name": "Alish",
+  "surname": "Aliyev",
+  "phone": "1213",
+  "email": "bigmangcom@gmail.com",
+  "password": "123456"
+}
