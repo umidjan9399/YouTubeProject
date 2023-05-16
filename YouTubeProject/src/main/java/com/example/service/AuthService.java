@@ -1,8 +1,7 @@
 package com.example.service;
 
-import com.example.dto.auth.AuthDTO;
+import com.example.dto.auth.AuthDT;
 import com.example.dto.auth.AuthResponseDTO;
-import com.example.dto.auth.RegistrationDTO;
 import com.example.dto.auth.RegistrationResponseDTO;
 import com.example.entity.EmailHistoryEntity;
 import com.example.entity.ProfileEntity;
@@ -29,7 +28,7 @@ public class AuthService {
     @Autowired
     private EmailHistoryRepository emailHistoryRepository;
 
-    public AuthResponseDTO login(AuthDTO dto) {
+    public AuthResponseDTO login(AuthDT dto) {
         Optional<ProfileEntity> optional = profileRepository.findByEmailAndPasswordAndVisible(
                 dto.getEmail(),
                 MD5Util.getMd5Hash(dto.getPassword()),
