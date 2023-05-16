@@ -1,6 +1,5 @@
 ### UPLOAD
-POST http://localhost:8080/api/v1/attach/upload/private
-Authorization: Basic user:
+POST http://localhost:8080/api/v1/attach/private/upload
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 --WebAppBoundary
@@ -9,12 +8,14 @@ Content-Disposition: form-data; name="file"; filename="wallpaperflare.com_wallpa
 < C:\wallpaperflare.com_wallpaper.jpg
 
 ### OPEN GENERAL
-GET http://localhost:8080/api/v1/attach/open_general/dd7d0bd2-fd06-4faf-878d-999e4d7e9191
+GET http://localhost:8080/api/v1/attach/public/open_general/b3b94977-2001-4c26-9cb8-6dfac5a3dc22
+
 
 ### DOWNLOAD
-GET http://localhost:8080/api/v1/attach/download/wallpaperflare.com_wallpaper.jpg
+GET http://localhost:8080/api/v1/attach/public/download/b3b94977-2001-4c26-9cb8-6dfac5a3dc22
+
 
 ### DELETE
-DELETE http://localhost:8080/api/v1/attach/deleteById/b67fcd30-d05a-473a-b748-cbb826ac6154
+DELETE http://localhost:8080/api/v1/attach/private/deleteById/b67fcd30-d05a-473a-b748-cbb826ac6154
 
 

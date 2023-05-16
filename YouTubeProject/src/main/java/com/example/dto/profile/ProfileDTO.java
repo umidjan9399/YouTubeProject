@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProfileDto {
+public class ProfileDTO {
     private Integer id;
     @NotNull(message = "name required")
     private String name;

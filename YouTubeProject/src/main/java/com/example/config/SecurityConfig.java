@@ -7,11 +7,16 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
+
+import java.util.UUID;
 
 @EnableWebSecurity
 @Component
@@ -21,23 +26,23 @@ public class SecurityConfig {
     @Autowired
     private TokenFilter tokenFilter;
 
-    /*   @Bean
-    public AuthenticationProvider authenticationProvider() {
-        // authentication
-        // login,password ACTIVE,
-        String password = UUID.randomUUID().toString();
-        System.out.println("User Password mazgi: " + password);
-
-        UserDetails user = User.builder()
-                .username("user")
-                .password("{noop}" + password)
-                .roles("USER")
-                .build();
-
-        final DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-        authenticationProvider.setUserDetailsService(new InMemoryUserDetailsManager(user));
-        return authenticationProvider;
-    }*/
+//    @Bean
+//    public AuthenticationProvider authenticationProvider() {
+//        // authentication
+//        // login,password ACTIVE,
+//        String password = UUID.randomUUID().toString();
+//        System.out.println("User Password mazgi: " + password);
+//
+//        UserDetails user = User.builder()
+//                .username("user")
+//                .password("{noop}" + password)
+//                .roles("USER")
+//                .build();
+//
+//        final DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+//        authenticationProvider.setUserDetailsService(new InMemoryUserDetailsManager(user));
+//        return authenticationProvider;
+//    }
 
     @Bean
     public AuthenticationProvider authenticationProvider() {
@@ -46,7 +51,8 @@ public class SecurityConfig {
         authenticationProvider.setPasswordEncoder(passwordEncoder());
         return authenticationProvider;
     }
-    public static String[] AUTH_WHITELIST = {"/api/v1/*/public/**",
+    public static String[] AUTH_WHITELIST = {
+            "/api/v1/*/public/**",
             "/api/v1/auth/**",
             "/api/v1/auth",
             "/api/v1/attach/public/**"
@@ -66,7 +72,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/profile/adm/**").hasRole("ADMIN")
                 .requestMatchers("/api/v1/attach/**").hasAnyRole("ADMIN","MODERATOR")
                 .requestMatchers("/api/v1/article/private/**").hasAnyRole("MODERATOR", "ADMIN")
-                .requestMatchers("/api/v1/attach/private/**").hasAnyRole("ADMIN", "MODERATOR", "PUBLISHER")
+                .requestMatchers("/api/v1/attach/private/**").hasAnyRole("ADMIN")
                 .anyRequest()
                 .authenticated().and().httpBasic();
         return http.build();

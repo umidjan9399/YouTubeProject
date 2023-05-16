@@ -16,25 +16,25 @@ public class AttachController {
     @Autowired
     private AttachService attachService;
 
-    @PostMapping("/upload/private")
+    @PostMapping("private/upload")
     public ResponseEntity<AttachDTO> upload(@RequestParam("file") MultipartFile file) {
         AttachDTO dto = attachService.saveToSystem3(file);
         return ResponseEntity.ok().body(dto);
     }
 
-    @GetMapping(value = "/open_general/{id}", produces = MediaType.ALL_VALUE)
+    @GetMapping(value = "/public/open_general/{id}", produces = MediaType.ALL_VALUE)
     public byte[] open_general(@PathVariable("id") String id) {
         return attachService.open_general2(id);
     }
 
-    @GetMapping("/download/{photoId}")
+    @GetMapping("/public/download/{photoId}")
     public ResponseEntity<Resource> download(@PathVariable("photoId") String photo_id) {
         Resource file = attachService.download(photo_id);
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
                 "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 
-    @DeleteMapping("/deleteById/{id}")
+    @DeleteMapping("/private/deleteById/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable("id") String id) {
         return ResponseEntity.ok(attachService.delete(id));
     }

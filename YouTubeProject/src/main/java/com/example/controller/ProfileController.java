@@ -1,7 +1,7 @@
 package com.example.controller;
 
 import com.example.dto.JwtDto;
-import com.example.dto.profile.ProfileDto;
+import com.example.dto.profile.ProfileDTO;
 import com.example.enums.ProfileRole;
 import com.example.service.ProfileService;
 import com.example.util.JwtUtil;
@@ -30,12 +30,12 @@ public class ProfileController {
     private ProfileService profileService;
 
     @PostMapping({"/adm", "/adm/create"})
-    public ResponseEntity<Integer> create(@RequestBody ProfileDto dto) {
+    public ResponseEntity<Integer> create(@RequestBody ProfileDTO dto) {
         return ResponseEntity.ok(profileService.create(dto));
     }
 
     @GetMapping("/list-paging/get-detail")
-    public ResponseEntity<Page<ProfileDto>> getProfileDetail(
+    public ResponseEntity<Page<ProfileDTO>> getProfileDetail(
             @RequestParam(value = "page", defaultValue = "1") int page,
             @RequestParam(value = "size", defaultValue = "3") int size,
             @RequestHeader("Authorization") String authorization) {
@@ -44,7 +44,7 @@ public class ProfileController {
     }
 
     @PutMapping("/{id}/change/password")
-    public ResponseEntity<ProfileDto> changePassword(@PathVariable("id") Integer id) {
+    public ResponseEntity<ProfileDTO> changePassword(@PathVariable("id") Integer id) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         System.out.println(currentPrincipalName);
@@ -66,7 +66,7 @@ public class ProfileController {
 
     @PutMapping("/update-detail/{id}")
     public ResponseEntity<Boolean> updateDetail(@PathVariable ("id") Integer id,
-                                                @RequestBody ProfileDto profileDto) {
+                                                @RequestBody ProfileDTO profileDto) {
         return ResponseEntity.ok(profileService.updateDetail(id, profileDto));
     }
 
