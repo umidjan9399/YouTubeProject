@@ -48,7 +48,8 @@ public class SecurityConfig {
     }
     public static String[] AUTH_WHITELIST = {"/api/v1/*/public/**",
             "/api/v1/auth/**",
-            "/api/v1/auth"
+            "/api/v1/auth",
+            "/api/v1/attach/public/**"
     };
 
     @Bean
@@ -64,6 +65,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/article/private").hasRole("ADMIN")
                 .requestMatchers("/api/v1/profile/adm/**").hasRole("ADMIN")
                 .requestMatchers("/api/v1/article/private/**").hasAnyRole("MODERATOR", "ADMIN")
+                .requestMatchers("/api/v1/attach/private/**").hasAnyRole("ADMIN", "MODERATOR", "PUBLISHER")
                 .anyRequest()
                 .authenticated().and().httpBasic();
         return http.build();

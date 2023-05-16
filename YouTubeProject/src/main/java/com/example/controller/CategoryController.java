@@ -20,7 +20,7 @@ public class CategoryController {
     @PostMapping({"/private"})
     public ResponseEntity<Integer> create(@RequestBody CategoryDto dto,
                                           HttpServletRequest request) {
-        JwtUtil.checkForRequiredRole(request, ProfileRole.ADMIN);
+        JwtUtil.checkForRequiredRole(request, ProfileRole.ROLE_ADMIN);
         Integer prtId = (Integer) request.getAttribute("id");
         return ResponseEntity.ok(categoryService.create(dto, prtId));
     }
@@ -28,14 +28,14 @@ public class CategoryController {
     public ResponseEntity<Boolean> update(@PathVariable("id") Integer id,
                                           @RequestBody CategoryDto categoryDto,
                                           HttpServletRequest request) {
-        JwtUtil.checkForRequiredRole(request, ProfileRole.ADMIN);
+        JwtUtil.checkForRequiredRole(request, ProfileRole.ROLE_ADMIN);
         return ResponseEntity.ok(categoryService.update(id, categoryDto));
     }
 
     @DeleteMapping("/private/{id}")
     public ResponseEntity<Boolean> deleteById(@PathVariable ("id") Integer id,
                                               HttpServletRequest request) {
-        JwtUtil.checkForRequiredRole(request, ProfileRole.ADMIN);
+        JwtUtil.checkForRequiredRole(request, ProfileRole.ROLE_ADMIN);
         return ResponseEntity.ok(categoryService.deleteById(id));
     }
 

@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class RegistrationDto {
+public class RegistrationDTO {
     @NotEmpty(message = "name required")
     private String name;
     @NotEmpty(message = "surname required")

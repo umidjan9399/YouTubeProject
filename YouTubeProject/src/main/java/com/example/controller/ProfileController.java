@@ -1,13 +1,8 @@
 package com.example.controller;
 
 import com.example.dto.JwtDto;
-import com.example.dto.auth.AuthDto;
-import com.example.dto.auth.AuthResponseDto;
-import com.example.dto.auth.RegistrationDto;
-import com.example.dto.auth.RegistrationResponseDto;
 import com.example.dto.profile.ProfileDto;
 import com.example.enums.ProfileRole;
-import com.example.service.AuthService;
 import com.example.service.ProfileService;
 import com.example.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +39,7 @@ public class ProfileController {
             @RequestParam(value = "page", defaultValue = "1") int page,
             @RequestParam(value = "size", defaultValue = "3") int size,
             @RequestHeader("Authorization") String authorization) {
-        JwtDto jwtDTO = JwtUtil.getJwtDTO(authorization, ProfileRole.ADMIN);
+        JwtDto jwtDTO = JwtUtil.getJwtDTO(authorization, ProfileRole.ROLE_ADMIN);
         return ResponseEntity.ok(profileService.getProfileDetail(page, size));
     }
 
