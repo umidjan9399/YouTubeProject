@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Youtube_lesson@localhost" uuid="4cc26824-3418-4407-9a39-89b3bd8abe21">
+    <data-source source="LOCAL" name="youtube@localhost" uuid="dcc1e452-c801-4bf0-8932-f6357a6c3df6">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/Youtube_lesson</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/youtube</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

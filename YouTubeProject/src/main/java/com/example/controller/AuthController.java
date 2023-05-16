@@ -1,9 +1,8 @@
 package com.example.controller;
-
-import com.example.dto.RegistrationResponseDTO;
-import com.example.dto.auth.AuthDto;
-import com.example.dto.auth.AuthResponseDto;
+import com.example.dto.auth.AuthDTO;
+import com.example.dto.auth.AuthResponseDTO;
 import com.example.dto.auth.RegistrationDTO;
+import com.example.dto.auth.RegistrationResponseDTO;
 import com.example.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,13 +14,13 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-    @PostMapping("/login")
-    public ResponseEntity<AuthResponseDto> login(@RequestBody AuthDto dto) {
+    @PostMapping("")
+    public ResponseEntity<AuthResponseDTO> login(@RequestBody AuthDTO dto) {
         return ResponseEntity.ok(authService.login(dto));
     }
 
-    @PostMapping("/registration")
-    public ResponseEntity<RegistrationResponseDTO> registsation(@RequestBody RegistrationDTO dto) {
+    @PostMapping("/register")
+    public ResponseEntity<RegistrationResponseDTO> registration(@RequestBody RegistrationDTO dto) {
         return ResponseEntity.ok(authService.registration(dto));
     }
 
@@ -29,4 +28,5 @@ public class AuthController {
     public ResponseEntity<RegistrationResponseDTO> emailVerification(@PathVariable("jwt") String jwt) {
         return ResponseEntity.ok(authService.emailVerification(jwt));
     }
+
 }

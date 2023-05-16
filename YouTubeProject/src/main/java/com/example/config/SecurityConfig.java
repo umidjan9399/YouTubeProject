@@ -64,6 +64,7 @@ public class SecurityConfig {
                 .requestMatchers(AUTH_WHITELIST).permitAll()
                 .requestMatchers("/api/v1/article/private").hasRole("ADMIN")
                 .requestMatchers("/api/v1/profile/adm/**").hasRole("ADMIN")
+                .requestMatchers("/api/v1/attach/**").hasAnyRole("ADMIN","MODERATOR")
                 .requestMatchers("/api/v1/article/private/**").hasAnyRole("MODERATOR", "ADMIN")
                 .requestMatchers("/api/v1/attach/private/**").hasAnyRole("ADMIN", "MODERATOR", "PUBLISHER")
                 .anyRequest()

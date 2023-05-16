@@ -1,10 +1,8 @@
 package com.example.service;
-
-import com.example.dto.RegistrationResponseDTO;
-import com.example.dto.auth.AuthDto;
-import com.example.dto.auth.AuthResponseDto;
+import com.example.dto.auth.AuthDTO;
+import com.example.dto.auth.AuthResponseDTO;
 import com.example.dto.auth.RegistrationDTO;
-import com.example.entity.EmailHistoryEntity;
+import com.example.dto.auth.RegistrationResponseDTO;
 import com.example.entity.ProfileEntity;
 import com.example.enums.GeneralStatus;
 import com.example.enums.ProfileRole;
@@ -41,13 +39,15 @@ public class AuthService {
         if (!entity.getStatus().equals(GeneralStatus.ACTIVE)) {
             throw new AppBadRequestException("Wrong status");
         }
-        AuthResponseDto responseDTO = new AuthResponseDto();
+        AuthResponseDTO responseDTO = new AuthResponseDTO();
         responseDTO.setName(entity.getName());
         responseDTO.setSurname(entity.getSurname());
         responseDTO.setRole(entity.getRole());
         responseDTO.setJwt(JwtUtil.encode(entity.getEmail(), entity.getRole()));
         return responseDTO;
     }
+
+        // TODO check -?
     public RegistrationResponseDTO registration(RegistrationDTO dto) {
         // check -?
         Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
@@ -76,7 +76,6 @@ public class AuthService {
     }
 
     public RegistrationResponseDTO emailVerification(String jwt) {
-        // asjkdhaksdh.daskhdkashkdja
         String email = JwtUtil.decodeEmailVerification(jwt);
         Optional<ProfileEntity> optional = profileRepository.findByEmail(email);
         if (optional.isEmpty()) {
@@ -90,4 +89,5 @@ public class AuthService {
         profileRepository.save(entity);
         return new RegistrationResponseDTO("Registration Done");
     }
+
 }
