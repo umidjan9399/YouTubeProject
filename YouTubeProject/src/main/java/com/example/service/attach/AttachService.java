@@ -1,6 +1,6 @@
 package com.example.service.attach;
 
-import com.example.dto.AttachDto;
+import com.example.dto.attach.AttachDTO;
 import com.example.entity.attach.AttachEntity;
 import com.example.repository.attach.AttachRepository;
 import com.example.exps.ItemNotFoundException;
@@ -88,7 +88,7 @@ public class AttachService {
         return null;
     }
 
-    public AttachDto saveToSystem3(MultipartFile file) {
+    public AttachDTO saveToSystem3(MultipartFile file) {
         try {
             String pathFolder = getYmDString(); // 2022/04/23
             File folder = new File("attaches/" + pathFolder);  // attaches/2023/04/26
@@ -111,7 +111,7 @@ public class AttachService {
             // attaches/2023/04/26/uuid().jpg
             Files.write(path, bytes);
 
-            AttachDto dto = new AttachDto();
+            AttachDTO dto = new AttachDTO();
             dto.setId(attachEntity.getId());
             dto.setOriginalName(file.getOriginalFilename());
             dto.setUrl(serverHost + "/api/v1/attach/open/" + attachEntity.getId());
@@ -123,8 +123,8 @@ public class AttachService {
         return null;
     }
 
-    public AttachDto getAttachLink(String attachId) {
-        AttachDto dto = new AttachDto();
+    public AttachDTO getAttachLink(String attachId) {
+        AttachDTO dto = new AttachDTO();
         dto.setId(attachId);
         dto.setUrl(serverHost + "/api/v1/attach/open/" + attachId);
         return dto;
@@ -202,7 +202,7 @@ public class AttachService {
             AttachEntity attachEntity = get(photo_id);
             // attaches/2023/4/25/20f0f915-93ec-4099-97e3-c1cb7a95151f.jpg
             Path file = Paths.get("attaches/" + attachEntity.getPath() + "/" + photo_id + "." + attachEntity.getExtension());
-            Resource resource =  new UrlResource(file.toUri());
+            Resource resource = new UrlResource(file.toUri());
             if (resource.exists() || resource.isReadable()) {
                 return resource;
             }

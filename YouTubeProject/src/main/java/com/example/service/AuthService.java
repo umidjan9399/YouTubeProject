@@ -1,8 +1,10 @@
 package com.example.service;
+
 import com.example.dto.auth.AuthDTO;
 import com.example.dto.auth.AuthResponseDTO;
 import com.example.dto.auth.RegistrationDTO;
 import com.example.dto.auth.RegistrationResponseDTO;
+import com.example.entity.EmailHistoryEntity;
 import com.example.entity.ProfileEntity;
 import com.example.enums.GeneralStatus;
 import com.example.enums.ProfileRole;
@@ -27,7 +29,7 @@ public class AuthService {
     @Autowired
     private EmailHistoryRepository emailHistoryRepository;
 
-    public AuthResponseDto login(AuthDto dto) {
+    public AuthResponseDTO login(AuthDTO dto) {
         Optional<ProfileEntity> optional = profileRepository.findByEmailAndPasswordAndVisible(
                 dto.getEmail(),
                 MD5Util.getMd5Hash(dto.getPassword()),
@@ -47,7 +49,7 @@ public class AuthService {
         return responseDTO;
     }
 
-        // TODO check -?
+    // TODO check -?
     public RegistrationResponseDTO registration(RegistrationDTO dto) {
         // check -?
         Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());

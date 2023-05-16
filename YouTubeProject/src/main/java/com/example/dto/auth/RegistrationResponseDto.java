@@ -5,11 +5,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class RegistrationResponseDto {
+public class RegistrationResponseDTO {
     private String message;
 
-    public RegistrationResponseDto(String message) {
+    public RegistrationResponseDTO(String message) {
         this.message = message;
     }
-
 }

@@ -1,6 +1,6 @@
 package com.example.controller.attach;
 
-import com.example.dto.AttachDto;
+import com.example.dto.attach.AttachDTO;
 import com.example.service.attach.AttachService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -15,9 +15,10 @@ import org.springframework.web.multipart.MultipartFile;
 public class AttachController {
     @Autowired
     private AttachService attachService;
+
     @PostMapping("/upload/private")
-    public ResponseEntity<AttachDto> upload(@RequestParam("file") MultipartFile file) {
-        AttachDto dto = attachService.saveToSystem3(file);
+    public ResponseEntity<AttachDTO> upload(@RequestParam("file") MultipartFile file) {
+        AttachDTO dto = attachService.saveToSystem3(file);
         return ResponseEntity.ok().body(dto);
     }
 
@@ -34,7 +35,7 @@ public class AttachController {
     }
 
     @DeleteMapping("/deleteById/{id}")
-    public ResponseEntity<Boolean> delete(@PathVariable("id") String id){
+    public ResponseEntity<Boolean> delete(@PathVariable("id") String id) {
         return ResponseEntity.ok(attachService.delete(id));
     }
 }
