@@ -22,10 +22,10 @@ public class ProfileEntity {
     private String surname;
     @Column(name = "email")
     private String email;
-    @Column(name = "phone")
-    private String phone;
     @Column(name = "password")
     private String password;
+    @Column(name = "photo")
+    private String photo;
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private GeneralStatus status;
