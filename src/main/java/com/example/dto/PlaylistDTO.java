@@ -11,9 +11,9 @@ import lombok.Setter;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PlaylistDTO {
     private Integer id;
-    private Integer channel_id;
+    private Integer channelId;
     private String name;
     private String description;
     private VideoStatus status;
-    private Integer order_num;
+    private Integer orderNum;
 }

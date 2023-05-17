@@ -12,19 +12,19 @@ import java.time.LocalDateTime;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class VideoDTO {
-    private String id;
-    private String preview_attach_id;
-    private String title;
-    private Integer category_id;
-    private String attach_id;
-    private LocalDateTime created_date;
-    private LocalDate published_date;
-    private VideoStatus status;
-    private VideoTypeStatus type;
-    private Integer view_count;
-    private Integer shared_count;
-    private String description;
-    private String channel_id;
-    private Integer like_count;
-    private Integer dislike_count;
+    private String id; //
+    private String previewAttachId;
+    private String title; //
+    private Integer categoryId; //
+    private String attachId; //
+    private LocalDateTime createdDate; //
+    private LocalDateTime publishedDate; //
+    private VideoStatus status; //
+    private VideoTypeStatus type; //
+    private Integer viewCount; //
+    private Integer sharedCount; //
+    private String description; //
+    private String channelId; //
+    private Integer likeCount; //
+    private Integer dislikeCount; //
 }
