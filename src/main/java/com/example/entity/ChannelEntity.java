@@ -12,7 +12,7 @@ import lombok.Setter;
 @Table(name = "channel")
 public class ChannelEntity {
     @Id
-    private Integer id;
+    private String id;
     @Column(name = "name")
     private String name;
     @Column(name = "description")
@@ -20,18 +20,18 @@ public class ChannelEntity {
     @Column(name = "photo")
     private String photo_id;
     @ManyToOne
-    @JoinColumn(name = "photo")
+    @JoinColumn(name = "photo", insertable = false, updatable = false)
     private AttachEntity photo;
     @Column(name = "status")
     private GeneralStatus status;
     @Column(name = "banner")
     private String banner_id;
     @ManyToOne
-    @JoinColumn(name = "banner")
+    @JoinColumn(name = "banner", updatable = false, insertable = false)
     private AttachEntity banner;
     @Column(name = "profile_id")
     private Integer profile_id;
     @ManyToOne
-    @JoinColumn(name = "profile_id")
+    @JoinColumn(name = "profile_id", insertable = false, updatable = false)
     private ProfileEntity profile;
 }

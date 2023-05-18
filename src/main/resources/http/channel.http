@@ -1,0 +1,42 @@
+### Channel Create
+POST http://localhost:8080/api/v1/channel/public/create
+Content-Type: application/json
+
+{
+  "name": "aaa",
+  "description": "adasdadasda",
+  "photo_id": "088a0b13-513a-4589-a246-f1585b5ba66b",
+  "banner_id": "088a0b13-513a-4589-a246-f1585b5ba66b",
+  "profile_id": 3
+}
+
+### UPDATE CHANNEL NAME AND DESCRIPTION
+PUT http://localhost:8080/api/v1/channel/public/update-channel
+Content-Type: application/json
+
+{
+  "name": "badasdada",
+  "description": "adadasdadas",
+  "profile_id": 3
+}
+
+### UPDATE CHANNEL PHOTO
+PUT http://localhost:8080/api/v1/channel/public/update-photo
+Content-Type: application/json
+
+{
+  "photo_id": "f63aa165-6e73-4540-8dcd-ccace04f6a9b",
+  "profile_id": 3
+}
+
+### UPDATE CHANNEL BANNER
+PUT http://localhost:8080/api/v1/channel/public/update-banner
+Content-Type: application/json
+
+{
+  "banner_id": "f63aa165-6e73-4540-8dcd-ccace04f6a9b",
+  "profile_id": 3
+}
+
+### GET BY ID
+GET http://localhost:8080/api/v1/channel/public/get-by-channel-id/bb3bf0cb-9fb7-4b5c-99c5-9d334aad4263
