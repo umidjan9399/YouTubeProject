@@ -20,4 +20,8 @@ public class VideoTagService {
         dto.setCreatedDate(entity.getCreatedDate());
         return entity.getId();
     }
+
+    public int delete(VideoTagDTO dto) {
+        return videoTagRepository.deleteByVideoIdAndTagId(dto.getVideoId(),dto.getTagId());
+    }
 }

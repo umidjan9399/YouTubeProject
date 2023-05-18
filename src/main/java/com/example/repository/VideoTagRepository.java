@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.Repository;
 
 public interface VideoTagRepository extends CrudRepository<VideoTagEntity, Integer>, Repository<VideoTagEntity, Integer> {
+    int deleteByVideoIdAndTagId(String videoId,Integer tagId);
 }
