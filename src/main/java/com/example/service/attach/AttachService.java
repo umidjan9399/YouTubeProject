@@ -1,6 +1,7 @@
 package com.example.service.attach;
 
 import com.example.dto.attach.AttachDTO;
+import com.example.dto.attach.AttachInfoDTO;
 import com.example.entity.attach.AttachEntity;
 import com.example.repository.attach.AttachRepository;
 import com.example.exps.ItemNotFoundException;
@@ -123,11 +124,8 @@ public class AttachService {
         return null;
     }
 
-    public AttachDTO getAttachLink(String attachId) {
-        AttachDTO dto = new AttachDTO();
-        dto.setId(attachId);
-        dto.setUrl(serverHost + "/api/v1/attach/open/" + attachId);
-        return dto;
+    public String getAttachLink(String attachId) {
+        return serverHost + "/api/v1/attach/open/" + attachId;
     }
 
 
