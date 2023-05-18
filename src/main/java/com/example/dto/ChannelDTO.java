@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ChannelDTO {
-    private Integer id;
+    private String id;
     private String name;
     private String description;
     private String photo_id;

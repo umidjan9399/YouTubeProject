@@ -1,5 +1,6 @@
 ### UPLOAD
 POST http://localhost:8080/api/v1/attach/private/upload
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ0MTE5MTIsImVtYWlsIjoia2hvbG11bWlub3ZydXppYmVrQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNjg0NDk4MzEyLCJpc3MiOiJLdW51eiB0ZXN0IHBvcnRhbGkifQ.Y0SjPIbR8IDQLXI3fT20I2wwq7khxTWMeJYDGW2gLl0nZiXlF8V6Pz57Nk47-vsgzmNwrmB1JDI1PmDqixZu-g
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 --WebAppBoundary
