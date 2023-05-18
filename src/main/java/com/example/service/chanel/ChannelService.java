@@ -32,6 +32,7 @@ public class ChannelService {
         channel.setProfile_id(dto.getProfile_id());
         channelRepository.save(channel);
         dto.setId(channel.getId());
+        dto.setStatus(channel.getStatus());
         return dto;
     }
 
