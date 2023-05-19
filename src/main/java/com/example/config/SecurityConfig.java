@@ -55,7 +55,8 @@ public class SecurityConfig {
             "/api/v1/*/public/**",
             "/api/v1/auth/**",
             "/api/v1/auth",
-            "/api/v1/attach/public/**"
+            "/api/v1/attach/public/**",
+            "api/v1/channel/public/create"
     };
 
     @Bean
@@ -73,6 +74,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/attach/**").hasAnyRole("ADMIN","MODERATOR")
                 .requestMatchers("/api/v1/article/private/**").hasAnyRole("MODERATOR", "ADMIN")
                 .requestMatchers("/api/v1/attach/private/**").hasAnyRole("ADMIN")
+                .requestMatchers("/api/v1/video_tag/**").hasAnyRole("OWNER","USER")
                 .anyRequest()
                 .authenticated().and().httpBasic();
         return http.build();

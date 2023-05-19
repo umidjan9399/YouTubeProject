@@ -1,5 +1,5 @@
 ### Login
-POST http://localhost:8080/api/v1/auth/login
+POST http://localhost:8080/api/v1/auth
 Content-Type: application/json
 
 {
@@ -16,7 +16,7 @@ Content-Type: application/json
 }
 
 ### Registration
-POST http://localhost:8080/api/v1/auth/registration
+POST http://localhost:8080/api/v1/auth/register
 Content-Type: application/json
 
 {
