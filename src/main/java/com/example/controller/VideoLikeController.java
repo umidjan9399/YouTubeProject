@@ -12,17 +12,17 @@ public class VideoLikeController {
     @Autowired
     private VideoLikeService videoLikeService;
 
-    @PostMapping("/like")
+    @PostMapping("/public/like")
     private ResponseEntity<VideoLikeDTO> likeCommentLike(@RequestBody VideoLikeDTO commentDto){
         return ResponseEntity.ok(videoLikeService.commentLike(commentDto));
     }
 
-    @PostMapping("/dislike")
+    @PostMapping("/public/dislike")
     private ResponseEntity<VideoLikeDTO> dislikeCommentLike(@RequestBody VideoLikeDTO commentDto){
         return ResponseEntity.ok(videoLikeService.commentDislike(commentDto));
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/public/delete")
     private ResponseEntity<Boolean> deleteLike(@RequestBody VideoLikeDTO commentLikeDto){
         return ResponseEntity.ok(videoLikeService.deleteLike(commentLikeDto));
     }
