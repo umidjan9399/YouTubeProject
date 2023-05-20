@@ -1,0 +1,26 @@
+### COMMENT LIKE
+POST http://localhost:8080/api/v1/video-like/like
+Content-Type: application/json
+
+{
+  "video_id": 1,
+  "profile_id": 3
+}
+
+### COMMENT DISLIKE
+POST http://localhost:8080/api/v1/video-like/dislike
+Content-Type: application/json
+
+{
+"video_id": 1,
+"profile_id": 3
+}
+
+### DELETE COMMENT LIKE
+DELETE http://localhost:8080/api/v1/video-like/delete
+Content-Type: application/json
+
+{
+  "video_id": 1,
+  "profile_id": 3
+}
