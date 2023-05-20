@@ -26,7 +26,7 @@ public class VideoEntity {
     private VideoStatus status;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status")
+    @Column(name = "type_status")
     private VideoTypeStatus type;
 
     @Column(name = "shared_count")
