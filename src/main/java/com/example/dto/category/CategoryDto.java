@@ -1,4 +1,4 @@
-package com.example.dto;
+package com.example.dto.category;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;

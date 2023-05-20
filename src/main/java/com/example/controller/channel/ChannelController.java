@@ -1,10 +1,8 @@
 package com.example.controller.channel;
 
-import com.example.dto.CategoryDto;
 import com.example.dto.channel.ChannelDTO;
 import com.example.service.chanel.ChannelService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

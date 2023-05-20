@@ -1,13 +1,11 @@
 package com.example.service;
 
-import com.example.dto.VideoDTO;
+import com.example.dto.video.VideoDTO;
 import com.example.entity.ChannelEntity;
-import com.example.entity.PlaylistEntity;
 import com.example.entity.ProfileEntity;
 import com.example.entity.VideoEntity;
 import com.example.enums.VideoStatus;
 import com.example.exps.MethodNotAllowedException;
-import com.example.repository.PlaylistRepository;
 import com.example.repository.ProfileRepository;
 import com.example.repository.VideoRepository;
 import com.example.repository.channel.ChannelRepository;

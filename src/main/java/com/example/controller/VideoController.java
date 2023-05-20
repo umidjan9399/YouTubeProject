@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.example.dto.VideoDTO;
+import com.example.dto.video.VideoDTO;
 import com.example.service.VideoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

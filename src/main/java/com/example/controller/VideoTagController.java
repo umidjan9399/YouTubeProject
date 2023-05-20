@@ -1,7 +1,6 @@
 package com.example.controller;
 
-import com.example.dto.VideoTagDTO;
-import com.example.dto.profile.ProfileDTO;
+import com.example.dto.video.VideoTagDTO;
 import com.example.service.VideoTagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

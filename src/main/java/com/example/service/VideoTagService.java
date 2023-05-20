@@ -1,6 +1,6 @@
 package com.example.service;
 
-import com.example.dto.VideoTagDTO;
+import com.example.dto.video.VideoTagDTO;
 import com.example.entity.VideoTagEntity;
 import com.example.repository.VideoTagRepository;
 import org.springframework.beans.factory.annotation.Autowired;

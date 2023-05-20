@@ -1,4 +1,4 @@
-package com.example.dto;
+package com.example.dto.video;
 
 import com.example.enums.VideoStatus;
 import com.example.enums.VideoTypeStatus;
