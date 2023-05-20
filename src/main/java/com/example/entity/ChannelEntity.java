@@ -18,19 +18,19 @@ public class ChannelEntity {
     @Column(name = "description")
     private String description;
     @Column(name = "photo")
-    private String photo_id;
+    private String photoId;
     @ManyToOne
     @JoinColumn(name = "photo", insertable = false, updatable = false)
     private AttachEntity photo;
     @Column(name = "status")
     private GeneralStatus status;
     @Column(name = "banner")
-    private String banner_id;
+    private String bannerId;
     @ManyToOne
     @JoinColumn(name = "banner", updatable = false, insertable = false)
     private AttachEntity banner;
     @Column(name = "profile_id")
-    private Integer profile_id;
+    private Integer profileId;
     @ManyToOne
     @JoinColumn(name = "profile_id", insertable = false, updatable = false)
     private ProfileEntity profile;

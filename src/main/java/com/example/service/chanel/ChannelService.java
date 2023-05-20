@@ -1,6 +1,6 @@
 package com.example.service.chanel;
 
-import com.example.dto.ChannelDTO;
+import com.example.dto.channel.ChannelDTO;
 import com.example.entity.CategoryEntity;
 import com.example.entity.ChannelEntity;
 import com.example.enums.GeneralStatus;
@@ -26,10 +26,10 @@ public class ChannelService {
         channel.setId(UUID.randomUUID().toString());
         channel.setName(dto.getName());
         channel.setDescription(dto.getDescription());
-        channel.setPhoto_id(dto.getPhoto_id());
-        channel.setBanner_id(dto.getBanner_id());
+        channel.setPhotoId(dto.getPhoto_id());
+        channel.setBannerId(dto.getBanner_id());
         channel.setStatus(GeneralStatus.ACTIVE);
-        channel.setProfile_id(dto.getProfile_id());
+        channel.setProfileId(dto.getProfile_id());
         channelRepository.save(channel);
         dto.setId(channel.getId());
         return dto;
@@ -57,8 +57,8 @@ public class ChannelService {
         }
 
         ChannelEntity channel = new ChannelEntity();
-        channel.setPhoto_id(dto.getPhoto_id());
-        channelRepository.updatePhoto(channel.getPhoto_id(), dto.getProfile_id());
+        channel.setPhotoId(dto.getPhoto_id());
+        channelRepository.updatePhoto(channel.getPhotoId(), dto.getProfile_id());
         return true;
     }
 
@@ -69,8 +69,8 @@ public class ChannelService {
         }
 
         ChannelEntity channel = new ChannelEntity();
-        channel.setBanner_id(dto.getPhoto_id());
-        channelRepository.updateBanner(channel.getBanner_id(), dto.getProfile_id());
+        channel.setBannerId(dto.getPhoto_id());
+        channelRepository.updateBanner(channel.getBannerId(), dto.getProfile_id());
         return true;
     }
 
@@ -81,9 +81,9 @@ public class ChannelService {
         channelDTO.setId(channel.getId());
         channelDTO.setName(channel.getName());
         channelDTO.setDescription(channel.getDescription());
-        channelDTO.setPhoto_id(channel.getPhoto_id());
-        channelDTO.setBanner_id(channel.getBanner_id());
-        channelDTO.setProfile_id(channel.getProfile_id());
+        channelDTO.setPhoto_id(channel.getPhotoId());
+        channelDTO.setBanner_id(channel.getBannerId());
+        channelDTO.setProfile_id(channel.getProfileId());
         channelDTO.setStatus(channel.getStatus());
         return channelDTO;
     }

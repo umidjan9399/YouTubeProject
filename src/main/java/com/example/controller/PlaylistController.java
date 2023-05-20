@@ -22,4 +22,13 @@ public class PlaylistController {
                                           @RequestBody PlaylistDTO dto) {
         return ResponseEntity.ok(playlistService.update(id, dto));
     }
+    @PutMapping("/user/updateStatus/{id}")
+    public ResponseEntity<Boolean> updateStatus(@Valid @PathVariable("id") Integer id) {
+        return ResponseEntity.ok(playlistService.updateStatus(id));
+    }
+
+    @PutMapping("/user/delete/{id}")
+    public ResponseEntity<Boolean> delete(@Valid @PathVariable("id") Integer id) {
+        return ResponseEntity.ok(playlistService.delete(id));
+    }
 }
