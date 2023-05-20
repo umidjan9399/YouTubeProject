@@ -21,7 +21,7 @@ public class VideoTagController {
         return ResponseEntity.ok(videoTagService.delete(dto));
     }
     @PostMapping("/get-video-tag/{id}")
-    public ResponseEntity<?> getVideoTag (@PathVariable String videoId){
-        return ResponseEntity.ok(videoTagService.getVideoTag(videoId));
+    public ResponseEntity<?> getVideoTag (@PathVariable String id){
+        return ResponseEntity.ok(videoTagService.getVideoTag(id));
     }
 }

@@ -2,9 +2,15 @@ package com.example.service;
 
 import com.example.dto.VideoTagDTO;
 import com.example.entity.VideoTagEntity;
+import com.example.mapper.VideoTagMapper;
 import com.example.repository.VideoTagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 @Service
 public class VideoTagService {
@@ -23,5 +29,9 @@ public class VideoTagService {
 
     public int delete(VideoTagDTO dto) {
         return videoTagRepository.deleteByVideoIdAndTagId(dto.getVideoId(),dto.getTagId());
+    }
+
+    public List<VideoTagMapper> getVideoTag(String videoId) {
+        return videoTagRepository.findAllByVideoIdToMapper(videoId);
     }
 }
