@@ -1,10 +1,11 @@
 package com.example.controller;
 
-import com.example.dto.JwtDto;
 import com.example.dto.profile.ProfileDTO;
 import com.example.enums.ProfileRole;
 import com.example.service.ProfileService;
 import com.example.util.JwtUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -28,9 +29,11 @@ public class ProfileController {
         (id,name,surname,email,Role(ADMIN,MODERATOR))*/
     @Autowired
     private ProfileService profileService;
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProfileController.class);
 
     @PostMapping({"/adm", "/adm/create"})
     public ResponseEntity<Integer> create(@RequestBody ProfileDTO dto) {
+        LOGGER.info("Create profile {}", dto);
         return ResponseEntity.ok(profileService.create(dto));
     }
 
@@ -39,7 +42,7 @@ public class ProfileController {
             @RequestParam(value = "page", defaultValue = "1") int page,
             @RequestParam(value = "size", defaultValue = "3") int size,
             @RequestHeader("Authorization") String authorization) {
-        JwtDto jwtDTO = JwtUtil.getJwtDTO(authorization, ProfileRole.ROLE_ADMIN);
+        JwtUtil.getJwtDTO(authorization, ProfileRole.ROLE_ADMIN);
         return ResponseEntity.ok(profileService.getProfileDetail(page, size));
     }
 
@@ -51,7 +54,7 @@ public class ProfileController {
         return ResponseEntity.ok(profileService.changePassword(id));
     }
 
-    @PutMapping("/update-email")
+    @PutMapping("/update-email/{id}")
     public ResponseEntity<Boolean> updateEmail(@PathVariable("id") Integer id) {
         return ResponseEntity.ok(profileService.updateEmail(id));
     }

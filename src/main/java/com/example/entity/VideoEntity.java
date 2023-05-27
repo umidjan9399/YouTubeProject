@@ -56,11 +56,11 @@ public class VideoEntity {
     @JoinColumn(name = "category_id", insertable = false, updatable = false)
     private CategoryEntity category;
 
-    @Column(name = "channel_id")
-    private String channelId;
+    @Column(name = "channel_id" )
+    private String channelId ;
     @ManyToOne
     @JoinColumn(name = "channel_id", insertable = false, updatable = false)
-    private ChannelEntity channel;
+    private ChannelEntity channel ;
 
     @Column(name = "publisher_id")
     private Integer publisherId;

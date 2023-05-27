@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 public class VideoLikeDTO {
     private Integer id;
-    private String comment_id;
+    private String video_id;
     private Integer profile_id;
     private VideoLikeStatus status;
 }

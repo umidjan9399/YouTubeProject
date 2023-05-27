@@ -1,15 +1,15 @@
 ### Create profile
-POST localhost:8080/api/v1/profile/
-Authorization: Basic user:46589f70-9261-4336-b6ee-50089e0931c9
+POST localhost:8080/api/v1/profile/adm/create
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ1OTQzODksImVtYWlsIjoia2hvbG11bWlub3ZydXppYmVrQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNjg0NjgwNzg5LCJpc3MiOiJLdW51eiB0ZXN0IHBvcnRhbGkifQ.x72T_e6bplkov4WAvxA-iTht5yDPFMuyo3ury1MMRqJlQaKHIBfarCVqtBKvP0nlFW0n2MULLqO-t1OA7gYkOQ
 Content-Type:  application/json
 
 {
   "name": "sdfgfs",
   "surname": "asdfdf",
-  "email": "sdfdds@mail.ru",
+  "email": "sdddfdds@mail.ru",
   "phone": "4352",
   "password": "34525",
-  "role": "USER"
+  "role": "ROLE_USER"
 }
 
 ### Profile List with pagination

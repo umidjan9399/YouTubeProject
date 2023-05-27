@@ -23,6 +23,9 @@ public class VideoService {
     private ChannelRepository channelRepository;
     @Autowired
     private ProfileRepository profileRepository;
+    @Autowired
+    private SenderService senderService;
+
     public VideoDTO create(VideoDTO dto) {
         VideoEntity entity = new VideoEntity();
         entity.setCategoryId(dto.getCategoryId());
@@ -30,8 +33,10 @@ public class VideoService {
         entity.setDescription(dto.getDescription());
         entity.setChannelId(dto.getChannelId());
         entity.setTitle(dto.getTitle());
+        entity.setPublisherId(dto.getPublisherId());
         entity.setPreviewAttachId(dto.getPreviewAttachId());
         entity.setType(dto.getType());
+        entity.setStatus(VideoStatus.PRIVATE);
         dto.setId(entity.getId());
         videoRepository.save(entity);
         return dto;
@@ -70,11 +75,14 @@ public class VideoService {
             entity.setStatus(VideoStatus.PRIVATE);
             videoRepository.save(entity);
             return  true;
-        }else {
+        }else if (video.get().getStatus().equals(VideoStatus.PRIVATE)){
             entity.setStatus(VideoStatus.PUBLIC);
             videoRepository.save(entity);
+            senderService.send("\n Channel Name: " + channel.get().getName()  + "\n Video Title: " + video.get().getTitle()
+                    + "\n Video Attach:  " + video.get().getAttach());
             return true;
         }
+        return false;
     }
 
     public Boolean viewCount(String id) {

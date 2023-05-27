@@ -19,6 +19,7 @@ public class VideoDTO {
     private String attachId; //
     private LocalDateTime createdDate; //
     private LocalDateTime publishedDate; //
+    private Integer publisherId;
     private VideoStatus status; //
     private VideoTypeStatus type; //
     private Integer viewCount; //

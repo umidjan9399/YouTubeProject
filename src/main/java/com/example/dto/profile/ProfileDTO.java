@@ -5,9 +5,11 @@ import com.example.enums.ProfileRole;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class ProfileDTO {
     private Integer id;
     @NotNull(message = "name required")

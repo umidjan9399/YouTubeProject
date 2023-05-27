@@ -28,7 +28,7 @@ public class VideoLikeService {
             }
         }
         VideoLikeEntity commentLikeEntity = new VideoLikeEntity();
-        commentLikeEntity.setVideo_id(commentDto.getComment_id());
+        commentLikeEntity.setVideo_id(commentDto.getVideo_id());
         commentLikeEntity.setProfile_id(commentDto.getProfile_id());
         commentLikeEntity.setCommentLikeStatus(VideoLikeStatus.LIKE);
         videoLikeRepository.save(commentLikeEntity);
@@ -53,7 +53,7 @@ public class VideoLikeService {
             }
         }
         VideoLikeEntity commentLikeEntity = new VideoLikeEntity();
-        commentLikeEntity.setVideo_id(commentDto.getComment_id());
+        commentLikeEntity.setVideo_id(commentDto.getVideo_id());
         commentLikeEntity.setProfile_id(commentDto.getProfile_id());
         commentLikeEntity.setCommentLikeStatus(VideoLikeStatus.DISLIKE);
         videoLikeRepository.save(commentLikeEntity);
